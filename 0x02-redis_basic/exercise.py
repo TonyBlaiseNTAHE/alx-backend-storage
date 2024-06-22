@@ -12,8 +12,7 @@ class Cache():
     def __init__(self, redis):
         self._redis = redis.Redis()
         self._redis.flushdb()
-    
-    @call_history
+
     def store(self, data: Union[str, bytes, int, float]) -> str:
         key = str(uuid.uuid4())
         if isinstance(data, (int, float)):
